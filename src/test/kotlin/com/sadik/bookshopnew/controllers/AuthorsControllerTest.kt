@@ -1,7 +1,12 @@
 package com.sadik.bookshopnew.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.ninjasquad.springmockk.MockkBean
+import com.sadik.bookshopnew.domain.entity.AuthorEntity
 import com.sadik.bookshopnew.services.AuthorService
+import com.sadik.bookshopnew.testAuthorDtoA
+import io.mockk.every
+import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -48,7 +53,7 @@ class AuthorsControllerTest @Autowired constructor (
             description = "Some description"
         )
 
-        verify{ authorService.save(expected) }
+        verify{ authorService.saveAuthor(expected) }
     }
 
     @Test
